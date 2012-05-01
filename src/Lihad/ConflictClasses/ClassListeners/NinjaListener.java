@@ -8,6 +8,8 @@ import org.bukkit.event.Event.Result;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import Lihad.ConflictClasses.Classes;
 import Lihad.ConflictClasses.ConflictClasses;
@@ -24,6 +26,11 @@ public class NinjaListener implements Listener {
 				&& event.getPlayer().getItemInHand().getType() == Material.ARROW && (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)){
 			event.setUseItemInHand(Result.ALLOW);
 			event.getPlayer().shootArrow();
+		}
+		if(ConflictClasses.PLAYER_CURRENT_INDEX.get(event.getPlayer().getName()) == Classes.NINJA && event.getPlayer().getItemInHand() != null
+				&& event.getPlayer().getItemInHand().getType() == Material.BLAZE_ROD && (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)){
+			event.setUseItemInHand(Result.ALLOW);
+			event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY,100,5));
 		}
 	}
 	@EventHandler
