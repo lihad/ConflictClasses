@@ -2,9 +2,11 @@ package Lihad.ConflictClasses.ClassListeners;
 
 import java.util.List;
 
+import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.Event.Result;
@@ -30,6 +32,13 @@ public class BardListener implements Listener {
 				if(entities.get(i) instanceof LivingEntity){
 					((LivingEntity)entities.get(i)).addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION,20,5));
 					((LivingEntity)entities.get(i)).addPotionEffect(new PotionEffect(PotionEffectType.POISON,20,5));
+					if(entities.get(i) instanceof Player){
+						((Player)entities.get(i)).getWorld().playEffect(((Player)entities.get(i)).getLocation(), Effect.GHAST_SHRIEK, null);
+						((Player)entities.get(i)).getWorld().playEffect(((Player)entities.get(i)).getLocation(), Effect.GHAST_SHRIEK, null);
+						((Player)entities.get(i)).getWorld().playEffect(((Player)entities.get(i)).getLocation(), Effect.GHAST_SHRIEK, null);
+						((Player)entities.get(i)).getWorld().playEffect(((Player)entities.get(i)).getLocation(), Effect.BLAZE_SHOOT, null);
+						((Player)entities.get(i)).getWorld().playEffect(((Player)entities.get(i)).getLocation(), Effect.EXTINGUISH, null);
+					}
 				}
 			}
 		}
