@@ -33,7 +33,6 @@ public class SummonerListener implements Listener {
 				List<Block> blocks = event.getPlayer().getLineOfSight(null, 5);
 				List<Entity> entities = event.getPlayer().getNearbyEntities(10, 10, 10);
 				for(int i = 0;i<blocks.size();i++){
-					blocks.get(i).getWorld().playEffect(blocks.get(i).getLocation(), Effect.MOBSPAWNER_FLAMES, null);
 					for(int j = 0;j<entities.size();j++){
 						if(entities.get(j) instanceof LivingEntity && (blocks.get(i).getLocation().equals(((LivingEntity)entities.get(j)).getLocation().getBlock().getLocation())
 								|| blocks.get(i).getLocation().equals(((LivingEntity)entities.get(j)).getEyeLocation().getBlock().getLocation()))){
