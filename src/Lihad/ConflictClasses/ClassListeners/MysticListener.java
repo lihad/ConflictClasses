@@ -34,6 +34,7 @@ public class MysticListener implements Listener {
 		if(ConflictClasses.PLAYER_CURRENT_INDEX.get(event.getPlayer().getName()) == Classes.MYSTIC && event.getPlayer().getItemInHand() != null
 				&& event.getPlayer().getItemInHand().getType() == Material.BOOK && (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)){
 			List<Entity> entities = event.getPlayer().getNearbyEntities(8, 5, 8);
+			event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED,20,5));
 			for(int i = 0; i<entities.size();i++){
 				if(entities.get(i) instanceof Player){
 					((Player)entities.get(i)).addPotionEffect(new PotionEffect(PotionEffectType.SPEED,20,5));
